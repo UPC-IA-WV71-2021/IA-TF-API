@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>TF Inteligencia Artificial</title>
+
+		<!--Estilos CSS-->
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link id="theme" rel="stylesheet" type="text/css" href="css/green.css">
+
+		<!--JQuery-->
+		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+		<!--Slider-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  		<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+  		<!--Mis Scripsts-->
+  		<script type="text/javascript" src="js/create.js"></script>
+	</head>
+	<body>
+		<div id="selector-theme">
+			<div id="to-green"></div>
+			<div id="to-red"></div>
+			<div id="to-blue"></div>
+		</div>
+
+		<section id="global">
+
+			<!--Cabecera-->
+			<header>
+				<div id="logo">
+					<h1>Trabajo Final IA</h1>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<nav id="menu">
+					<ul>
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="dataset.html">DataSet</a></li>
+						<li><a href="create.html">Crear</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<div id="login" style="width: 80%;">
+				<h4><span>Ingresa tus datos</span></h4>
+				<br>
+				<form>
+					<!--
+						comun = request.json['fever'] + request.json['tiredness'] + request.json['dry-cough']
+    extranio = request.json['difficulty-in-breathing'] + request.json['sore-throat'] + request.json['pains'] + request.json['nasal-congestion'] + 
+	request.json['runny-nose'] + request.json['diarrhea']
+    punto_1 = (comun, extranio)
+
+					-->
+					<div class="col-lg-4">
+						<label class="label">Nombre</label>
+						<input name="name" id="name" class="form-control" type="text" style="width: 15%;" required />
+					</div>
+					<br>
+					<div class="col-lg-4">
+						<label class="label">Fiebre</label>
+						<select name="fever" id="fever-select" style="width: 15%;">
+							<option value=1>Sí</option>
+							<option value=0>No</option>
+						</select>
+					</div>
+					<br>
+					<div class="col-lg-4">
+						<label class="label">Cansancio</label>
+						<select name="tiredness" id="tiredness-select" style="width: 15%;">
+							<option value=1>Sí</option>
+							<option value=0>No</option>
+						</select>
+					</div>
+					<br>
+					<div class="form-group row">
+					<div class="col-lg-4">
+						<label class="label">Tos Seca</label>
+						<select name="dryCough" id="dry-cough-select" style="width: 15%;">
+							<option value=1>Sí</option>
+							<option value=0>No</option>
+						</select>
+					</div>
+					<br>
+					<div class="col-lg-4">
+						<label class="label">Dificultad para respirar</label>
+						<select name="difficultyInBreathing" id="difficulty-in-breathing-select" style="width: 15%;">
+							<option value=1>Sí</option>
+							<option value=0>No</option>
+						</select>
+					</div>
+					<br>
+					<div class="col-lg-4">
+						<label class="label">Dolor de garganta</label>
+						<select name="soreThroat" id="sore-throat-select" style="width: 15%;">
+							<option value=1>Sí</option>
+							<option value=0>No</option>
+						</select>
+					</div>
+					<br>
+					<div class="col-lg-4">
+						<label class="label">Dolores</label>
+						<select name="pains" id="pains-select" style="width: 15%;">
+							<option value=1>Sí</option>
+							<option value=0>No</option>
+						</select>
+					</div>
+					<br>
+					<div class="col-lg-4">
+						<label class="label">Congestión nasal</label>
+						<select name="nasalCongestion" id="nasal-congestion-select" style="width: 15%;">
+							<option value=1>Sí</option>
+							<option value=0>No</option>
+						</select>
+					</div>
+					<br>
+					<div class="col-lg-4">
+						<label class="label">Mucha mucosidad nasal</label>
+						<select name="nasalCongestion" id="nasal-congestion-select" style="width: 15%;">
+							<option value=1>Sí</option>
+							<option value=0>No</option>
+						</select>
+					</div>
+					<br>
+					<div class="col-lg-4">
+						<label class="label">Diarrea</label>
+						<select name="diarrhea" id="diarrhea-select" style="width: 15%;">
+							<option value=1>Sí</option>
+							<option value=0>No</option>
+						</select>
+					</div>
+					<br>
+					<button id="boton" >
+                        Enviar
+                    </button>
+
+					<span id="estado"></span>
+				</form>
+			</div>
+
+		</section>
+		<footer>
+			Master de JavaScript de Henrry Bustos &copy;
+
+			<a href="#" class="subir">Ir arriba</a>
+		</footer>
+	</body>
+</html>
+
