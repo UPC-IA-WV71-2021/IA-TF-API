@@ -21,7 +21,7 @@ var Creates = function(){
                 }
 
                 $.ajax({
-                    url: "http://127.0.0.1:9000/knn",
+                    url: "http://127.0.0.1:5000/knn",
                     method: "POST",
                     data: JSON.stringify(data),
                     dataType: 'json',
@@ -41,7 +41,27 @@ var Creates = function(){
                     .fail(function (error) {
                     console.log("algo se cayó");
                     });
+                $.ajax({
+                    url: "http://127.0.0.1:5000/cnn",
+                    method: "POST",
+                    data: JSON.stringify(data),
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    processData: false,
+                    crossDomain: true,
+                    success: function(result){
 
+                        localStorage.clear();
+                        localStorage.setItem("hogarId", result.hogarId);
+                        return false;
+                    }
+                })
+                .done(function(result){
+                    console.log(result);
+                })
+                    .fail(function (error) {
+                    console.log("algo se cayó");
+                    });
             });
         }
     }

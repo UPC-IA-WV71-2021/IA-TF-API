@@ -5,7 +5,7 @@ var Index = function(){
     var options = {
         responsive: true,
         ajax: {
-            url: "http://127.0.0.1:9000/minimos",
+            url: "http://127.0.0.1:5000/minimos",
             method: "get",
             dataSrc: ""
         },
@@ -85,7 +85,7 @@ var Index = function(){
         },
         dataset: function(){
             $.ajax({
-                url: "http://172.24.240.1:9000/dataset",
+                url: "http://172.24.240.1:5000/dataset",
                 method: "GET",
                 dataSrc: "",
                 success: function(result){  
