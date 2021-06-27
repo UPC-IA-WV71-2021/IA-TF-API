@@ -1,9 +1,11 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from flask.globals import request
 from math import dist
 import csv
 
 app = Flask(__name__)
+CORS(app)
 
 class Persona:
     def __init__(self, name, fever, tiredness, dryCough, difficultyInBreathing, soreThroat, pains, nasalCongestion, runnyNose, diarrhea):
@@ -40,7 +42,7 @@ def getPersonas():
 
 @app.route('/datasets')
 def getDataSet():
-    return jsonify({"cantidad": len(datasets), "dataset": datasets})
+    return jsonify(datasets)
 
 @app.route('/personas/<string:persona_name>')
 def getPersona(persona_name):

@@ -5,56 +5,54 @@ var DataSets = function(){
     var options = {
         responsive: true,
         ajax: {
-            url: "http://172.24.240.1:9000/dataset",
+            url: "http://127.0.0.1:9000/datasets",
             method: "get",
             dataSrc: ""
         },
         columns: [
             {
-                title: "Id",
-                data: "hogarId"
+                title: "Fiebre",
+                data: "fever"
             },
             {
-                title: "Departamento",
-                data: "departamento"
+                title: "Cansancio",
+                data: "tiredness"
             },
             {
-                title: "Provincia",
-                data: "provincia"
+                title: "Tos Seca",
+                data: "dry-cough"
             },
             {
-                title: "Distrito",
-                data: "distrito"
+                title: "Dificultad para respirar",
+                data: "difficulty-in-breathing"
             },
             {
-                title: "Área",
-                data: "area"
+                title: "Dolor de garganta",
+                data: "sore-throat"
             },
             {
-                title: "DNI",
-                data: "personaId"
+                title: "Dolores",
+                data: "pains"
             },
             {
-                title: "Genero",
-                data: "genero"
+                title: "Congesión Nasal",
+                data: "nasal-congestion"
             },
             {
-                title: "Edad",
-                data: "edad"
+                title: "Mucosidad Nasal",
+                data: "runny-nose"
             },
             {
-                title: "Estado",
-                data: function(result){
-                    var estado = result.aprobado;
-                    if(estado == true)
-                        return "Aprobado";
-                    else
-                        return "No Aprobado";
-                }
+                title: "Diarrea",
+                data: "diarrhea"
+            },
+            {
+                title: "Infectado",
+                data: "infected"
             },
             {
                 title: "Distancia",
-                data: "distancia"
+                data: "distance"
             }
         ]
     };
