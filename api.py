@@ -1,11 +1,17 @@
 from flask import Flask, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask.globals import request
 from math import dist
 import csv
 
 app = Flask(__name__)
 CORS(app)
+
+cors = CORS(app, resources = {
+    r"/*":{
+        "origins": "*"
+    }
+})
 
 class Persona:
     def __init__(self, name, fever, tiredness, dryCough, difficultyInBreathing, soreThroat, pains, nasalCongestion, runnyNose, diarrhea):
@@ -121,6 +127,7 @@ def ReadDataSet():
     return jsonify({"message": "Dataset Done"})
 
 @app.route('/knn', methods = ['POST'])
+@cross_origin()
 def addPersonaKnn():
 
     datasets.clear()

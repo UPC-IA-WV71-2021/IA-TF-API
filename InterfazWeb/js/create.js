@@ -8,30 +8,27 @@ var Creates = function(){
                 console.log($("#hogarId").val());
                 
                 var data = {
-                    hogarId: $("#hogarId").val(),
-                    departamento : $("#departamento").val(),
-                    provincia: $("#provincia").val(),
-                    distrito: $("#distrito").val(),
-                    area: $("#area-select").val(),
-                    personaId: $("#personaId").val(),
-                    genero: $("#genero-select").val(),
-                    edad: Number($("#edad").val()),
+                    "name" : $("#name").val(),
+                    "fever" : Number($("#fever-select").val()),
+                    "tiredness": Number($("#tiredness-select").val()),
+                    "dry-cough": Number($("#dry-cough-select").val()),
+                    "difficulty-in-breathing": Number($("#difficulty-in-breathing-select").val()),
+                    "sore-throat": Number($("#sore-throat-select").val()),
+                    "nasal-congestion": Number($("#nasal-congestion-select").val()),
+                    "runny-nose" : Number($("#runny-nose-select").val()),
+                    "diarrhea": Number($("#diarrhea-select").val()),
+                    "pains": Number($("#pains-select").val())
                 }
-                
 
                 $.ajax({
-                    url: "http://172.24.240.1:9000/knn-personas",
+                    url: "http://127.0.0.1:9000/knn",
                     method: "POST",
                     data: JSON.stringify(data),
                     dataType: 'json',
                     contentType: 'application/json',
                     processData: false,
+                    crossDomain: true,
                     success: function(result){ 
-                        if(result.aprobado == true){
-                            $("#estado").text("Aprobado");
-                        }
-                        else
-                            $("#estado").text("No Aprobado");
 
                         localStorage.clear();
                         localStorage.setItem("hogarId", result.hogarId);
