@@ -186,7 +186,7 @@ def addPersonaCnn():
         "estado": state
     }
     personas.append(newPersona)
-    return jsonify({"message": "Persona Added Succesfully", "personas": personas})
+    return jsonify(newPersona)
 
 @app.route('/knn', methods = ['POST'])
 @cross_origin()
@@ -195,8 +195,8 @@ def addPersonaKnn():
     datasets.clear()
     minimos.clear()
 
-    comun = request.json['fever'] + request.json['tiredness'] + request.json['dry-cough']
-    extranio = request.json['difficulty-in-breathing'] + request.json['sore-throat'] + request.json['pains'] + request.json['nasal-congestion'] + request.json['runny-nose'] + request.json['diarrhea']
+    comun = (request.json['fever'] * 0.5) + (request.json['tiredness'] * 0.2) + (request.json['dry-cough'] * 0.3)
+    extranio = (request.json['difficulty-in-breathing'] * 0.30) + (request.json['sore-throat'] * 0.25) + (request.json['pains'] * 0.20) + (request.json['nasal-congestion'] * 0.10) + (request.json['runny-nose'] * 0.10) + (request.json['diarrhea'] * 0.5)
     punto_1 = (comun, extranio)
 
     with open('Cleaned-Data.csv', 'r') as csv_file:

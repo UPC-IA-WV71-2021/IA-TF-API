@@ -19,9 +19,9 @@ var Creates = function(){
                     "diarrhea": Number($("#diarrhea-select").val()),
                     "pains": Number($("#pains-select").val())
                 }
-
+/*
                 $.ajax({
-                    url: "http://127.0.0.1:5000/knn",
+                    url: "http://127.0.0.1:9000/knn",
                     method: "POST",
                     data: JSON.stringify(data),
                     dataType: 'json',
@@ -30,6 +30,9 @@ var Creates = function(){
                     crossDomain: true,
                     success: function(result){ 
 
+                        var knn = result.personas[0].estado;
+
+                        $("#estadoknn").text("Usted tiene una probabilidad de " + knn + " según KNN");
                         localStorage.clear();
                         localStorage.setItem("hogarId", result.hogarId);
                         return false;
@@ -41,8 +44,9 @@ var Creates = function(){
                     .fail(function (error) {
                     console.log("algo se cayó");
                     });
+                    */
                 $.ajax({
-                    url: "http://127.0.0.1:5000/cnn",
+                    url: "http://127.0.0.1:9000/cnn",
                     method: "POST",
                     data: JSON.stringify(data),
                     dataType: 'json',
@@ -50,6 +54,10 @@ var Creates = function(){
                     processData: false,
                     crossDomain: true,
                     success: function(result){
+
+                        var cnn = (1 - result.estado[0]) * 100;
+
+                        $("#estadocnn").text("Usted tiene una probabilidad de " + cnn.toFixed(7) + "% de estar contagiado");
 
                         localStorage.clear();
                         localStorage.setItem("hogarId", result.hogarId);
@@ -62,6 +70,7 @@ var Creates = function(){
                     .fail(function (error) {
                     console.log("algo se cayó");
                     });
+                    
             });
         }
     }

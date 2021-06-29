@@ -4,13 +4,13 @@ body{
 }
 
 #logo{
-	background: #235E3D;
+	background: #0087ff;
 }
 
 #menu ul li:hover{
-	background: #235E3D;
+	background: #0087ff;
 }
 
 .button-more{
-	background: #235E3D;
+	background: #0087ff;
 }
